@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>survy Forms </title>
+    <style type="text/css">
+        .mainbody{
+            background: linear-gradient(to bottom, #33ccff 12%, #ffff99 74%);background-repeat: no-repeat;
+        }
+        .travail{
+            display: none;
+        }
+        .div{
+          background: linear-gradient(to right, #33ccff 12%, #ffffcc 74%);;padding:10px 10px;margin: 0% 15%;
+        }
+        h3{
+            padding: 20px 0; background: linear-gradient(to left, #33ccff 0%, #ffffcc 80%);
+        }
+        .envoyer{
+            margin-left: 45%; 
+            padding: 10px 50px;
+        }
+    
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body class="mainbody">
+<h2 style="margin-left: 23%">  Etude académique ( COVID-19 )   &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;  دراسة أكاديمية  (فيروس كورونا )</h2><br>
+ <p ><h2 style="margin-right: 23%" align="right" dir="rtl">
+    يتم إجراء هذا الاستطلاع كجزء من عمل بحثي أكاديمي حول فترة الحبس هذه <br>
+
+ستبقى البيانات والنتائج التي تم جمعها مجهولة ولن تُستخدم إلا للأغراض الأكاديمية
+</h2></p>
+<p style="margin-left: 23%" >Cette enquête est réalisée dans le cadre d’un travail de recherche académique portant sur cette période de confinement.<br>
+
+Les données et les résultats recueillis resteront anonymes et ne seront utilisés qu’à des fins universitaires.
+
+</p>
+<h2 style="margin-right: 40%" align="right" dir="rtl">رأيك يهم كثيرا لدفع هذا البحث</h2>
+<h4 style="margin-left: 35%">Votre avis compte beaucoup pour faire avancer cette recherche</h4>
+<form action="/thankyou/" method="post" class="div">
+    {% csrf_token %}
+    <table  >
+    <h3>&ensp;&ensp;&ensp;nom : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ form.nom }} &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; اللقب  </h3>
+    <h3>&ensp;&ensp;&ensp;prenom : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; {{ form.prenom }}  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; الاسم</h3>
+    <h3>&ensp;&ensp;&ensp;wilaya de résidence  : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; {{ form.willaya }} &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; ولاية  الاقامة </h3>
+    <h3>&ensp;&ensp;&ensp;Commune de résidence : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; {{ form.commune }} &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; بلدية الاقامة  </h3>
+    <h3>&ensp;&ensp;&ensp;age : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;   {{ form.age }} &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;   العمر  &ensp;</h3>
+    <h3>&ensp;&ensp;&ensp;Êtes-vous déjà infecté par Covid19 : &ensp;&ensp;&ensp;  oui {{ form.infection }}&ensp;&ensp;&ensp;&ensp;&ensp;  <input type="checkbox" name="non"> non    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; هل   انت   مصاب او سبق اصابتك بفيروس كورونا</h3>
+   
+    <h3 > &ensp;&ensp;&ensp;la wilaya où vous travaillez ou étudiez :&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; {{ form.willayaTravail }} &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; الولاية  التي تعمل  او تدرس بها </h3>
+    <h3 > &ensp;&ensp;&ensp;La commune où vous travaillez ou étudiez : ;&ensp;&ensp; {{ form.communeTravail }}&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; البلدية  التي تعمل  او تدرس بها </h3>
+              
+         
+
+    </table>
+
+<input type="submit" value="envoyer" class="envoyer" />
+</form> <footer>  copyright &copy MF</footer>
+
+</body>
+</html>
